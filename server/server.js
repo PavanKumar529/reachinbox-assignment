@@ -2,6 +2,7 @@ const express = require("express")
 const dotenv = require("dotenv")
 const dbConnect = require("./config/dbConnect");
 const cookieParser = require("cookie-parser");
+const userRouter = require("./routes/userRouter");
 
 dotenv.config()
 
@@ -18,6 +19,11 @@ const app = express()
 // middleware 
 app.use(express.json());
 app.use(cookieParser())
+
+
+// Routers
+app.use("/api/users", userRouter)
+
 
 
 // Demo API
